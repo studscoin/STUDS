@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017-2018 The PIVX developers
-// Copyright (c) 2021-2021 The Studscoin developers
+// Copyright (c) 2017-2019 The PIVX developers
+// Copyright (c) 2021-2022 The Studscoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +27,7 @@ void CSVModelWriter::addColumn(const QString& title, int column, int role)
     col.column = column;
     col.role = role;
 
-    colustuds.append(col);
+    columns.append(col);
 }
 
 static void writeValue(QTextStream& f, const QString& value)
@@ -60,21 +60,21 @@ bool CSVModelWriter::write()
     }
 
     // Header row
-    for (int i = 0; i < colustuds.size(); ++i) {
+    for (int i = 0; i < columns.size(); ++i) {
         if (i != 0) {
             writeSep(out);
         }
-        writeValue(out, colustuds[i].title);
+        writeValue(out, columns[i].title);
     }
     writeNewline(out);
 
     // Data rows
     for (int j = 0; j < numRows; ++j) {
-        for (int i = 0; i < colustuds.size(); ++i) {
+        for (int i = 0; i < columns.size(); ++i) {
             if (i != 0) {
                 writeSep(out);
             }
-            QVariant data = model->index(j, colustuds[i].column).data(colustuds[i].role);
+            QVariant data = model->index(j, columns[i].column).data(columns[i].role);
             writeValue(out, data.toString());
         }
         writeNewline(out);
