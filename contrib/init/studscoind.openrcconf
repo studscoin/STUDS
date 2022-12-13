@@ -1,0 +1,26 @@
+# /etc/conf.d/studscoind: config file for /etc/init.d/studscoind
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/studscoin/studscoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/studscoind"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/studscoind.pid"
+
+# Where to write studscoind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/studscoind"
+
+# User and group to own studscoind process
+#BITCOIND_USER="studscoin"
+#BITCOIND_GROUP="studscoin"
+
+# Path to studscoind executable
+#BITCOIND_BIN="/usr/bin/studscoind"
+
+# Nice value to run studscoind under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

@@ -1,7 +1,8 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The PIVX developers
-// Copyright (c) 2021-2022 The Studscoin Developers
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019-2020 The MasterWin developers
+// Copyright (c) 2021-2021 The Studscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,12 +10,11 @@
 
 #include "ui_helpmessagedialog.h"
 
+#include "bitcoingui.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "intro.h"
 #include "guiutil.h"
-
-#include "qt/pivx/qtutils.cpp"
 
 #include "clientversion.h"
 #include "init.h"
@@ -34,7 +34,6 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
                                                                     ui(new Ui::HelpMessageDialog)
 {
     ui->setupUi(this);
-    if (parent) this->setStyleSheet(parent->styleSheet());
     GUIUtil::restoreWindowGeometry("nHelpMessageDialogWindow", this->size(), this);
 
     QString version = tr("Studscoin") + " " + tr("version") + " " + QString::fromStdString(FormatFullVersion());
@@ -47,8 +46,6 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
     version += " " + tr("(%1-bit)").arg(32);
 #endif
 
-    setCssBtnPrimary(ui->pushButtonOk);
-    connect(ui->pushButtonOk, &QPushButton::clicked, this, &HelpMessageDialog::close);
     if (about) {
         setWindowTitle(tr("About Studscoin"));
 
@@ -59,7 +56,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
         // Make URLs clickable
         QRegExp uri("<(.*)>", Qt::CaseSensitive, QRegExp::RegExp2);
         uri.setMinimal(true); // use non-greedy matching
-        licenseInfoHTML.replace(uri, "<a style='color: #b088ff;text-decoration:none'  href=\"\\1\">\\1</a>");
+        licenseInfoHTML.replace(uri, "<a href=\"\\1\">\\1</a>");
         // Replace newlines with HTML breaks
         licenseInfoHTML.replace("\n\n", "<br><br>");
 
@@ -72,7 +69,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
     } else {
         setWindowTitle(tr("Command-line options"));
         QString header = tr("Usage:") + "\n" +
-                         "  studs-qt [" + tr("command-line options") + "]                     " + "\n";
+                         "  studscoin-qt [" + tr("command-line options") + "]                     " + "\n";
         QTextCursor cursor(ui->helpMessage->document());
         cursor.insertText(version);
         cursor.insertBlock();
@@ -86,7 +83,6 @@ HelpMessageDialog::HelpMessageDialog(QWidget* parent, bool about) : QDialog(pare
         strUsage += HelpMessageOpt("-min", tr("Start minimized").toStdString());
         strUsage += HelpMessageOpt("-rootcertificates=<file>", tr("Set SSL root certificates for payment request (default: -system-)").toStdString());
         strUsage += HelpMessageOpt("-splash", strprintf(tr("Show splash screen on startup (default: %u)").toStdString(), DEFAULT_SPLASHSCREEN));
-        strUsage += HelpMessageOpt("-hidecharts", strprintf(tr("Hide QT staking charts on startup (default: %u)").toStdString(), false));
         QString coreOptions = QString::fromStdString(strUsage);
         text = version + "\n" + header + "\n" + coreOptions;
 
@@ -149,18 +145,23 @@ void HelpMessageDialog::showOrPrint()
 #endif
 }
 
+void HelpMessageDialog::on_okButton_accepted()
+{
+    close();
+}
+
 
 /** "Shutdown" window */
 ShutdownWindow::ShutdownWindow(QWidget* parent, Qt::WindowFlags f) : QWidget(parent, f)
 {
     QVBoxLayout* layout = new QVBoxLayout();
     layout->addWidget(new QLabel(
-        tr("Studscoin is shutting down...") + "<br /><br />" +
+        tr("Studscoin Coin is shutting down...") + "<br /><br />" +
         tr("Do not shut down the computer until this window disappears.")));
     setLayout(layout);
 }
 
-void ShutdownWindow::showShutdownWindow(QMainWindow* window)
+void ShutdownWindow::showShutdownWindow(BitcoinGUI* window)
 {
     if (!window)
         return;
