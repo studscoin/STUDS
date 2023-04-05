@@ -64,11 +64,12 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     (370000, uint256("0xfcc0a71cbf81ffefb0173000e37019a4f08deb66695e95729af8cd76c5e2220a"))  
     (378000, uint256("0x39195c08ac0fd275e4bda01e261c620f3454cbe36dffd613ffc5a76003757b0e"))  
     (378900, uint256("0x28d3777b1fd08ab9dd2ec85f80cce1b04bd4434429c538fb9d91e72c9b5d983a"))
-    (564186, uint256("0x3438902ba013e8fdbb031d06712b72702d5477c9300c9101b17335da63312697"));
+    (564186, uint256("0x3438902ba013e8fdbb031d06712b72702d5477c9300c9101b17335da63312697"))
+    (695000, uint256("0x14e5144a7bbf38cb2ef90a5abcdae492c0fcdcec564590b23596b24692551011"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1658115542, // * UNIX timestamp of last checkpoint block
-    1159558,		// * total number of transactions between genesis and last checkpoint
+    1680706723, // * UNIX timestamp of last checkpoint block
+    1426391,		// * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
@@ -181,9 +182,11 @@ public:
         assert(hashGenesisBlock == uint256("0x00000080047121d8857fd183fddf47a9cd0c5b4d5f0a5e1d04704f03e91e95c1"));
         assert(genesis.hashMerkleRoot == uint256("0xad4b627711cc14c63cd1264bba794186735173ecabf6a84612e4f0ba95e17e720"));
 
-        vSeeds.push_back(CDNSSeedData("1", "136.243.77.62"));
-        vSeeds.push_back(CDNSSeedData("2", "[2a01:4f8:212:2b15::157]"));
-        vSeeds.push_back(CDNSSeedData("2", "[2a01:4f8:212:2b15::158]"));
+        vSeeds.push_back(CDNSSeedData("seed1", "seed1.studentscoin.net"));
+        vSeeds.push_back(CDNSSeedData("seed2", "seed2.studentscoin.net"));
+	    vSeeds.push_back(CDNSSeedData("seed3", "seed3.studentscoin.net"));
+	    vSeeds.push_back(CDNSSeedData("seed4", "seed4.studentscoin.net"));
+	    vSeeds.push_back(CDNSSeedData("seed5", "seed5.studentscoin.net"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,13);
