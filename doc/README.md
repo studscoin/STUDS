@@ -1,63 +1,62 @@
-Studscoin
-=====================
+Studscoin Core
+=============
 
 Setup
 ---------------------
-[Studscoin](http://studscoin.online/wallet) is the original Studscoin client and it builds the backbone of the network. However, it downloads and stores the entire history of Studscoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Studscoin Core](https://studscoin.net/) is the original Studscoin client and it builds the backbone of the network. However, it downloads and stores the entire history of Studscoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Studscoin on your native platform.
+The following are some helpful notes on how to run Studscoin Core on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- bin/32/studscoin-qt (GUI, 32-bit) or bin/32/studscoind (headless, 32-bit)
-- bin/64/studscoin-qt (GUI, 64-bit) or bin/64/studscoind (headless, 64-bit)
+- `bin/studs-qt` (GUI) or
+- `bin/studsd` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run studscoin-qt.exe.
+Unpack the files into a directory, and then run Studscoin-qt.exe.
 
-### OSX
+### macOS
 
 Drag Studscoin-Qt to your applications folder, and then run Studscoin-Qt.
 
 ### Need Help?
 
-* See the documentation at the [Studscoin Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
+* See the documentation at the [Studscoin Wiki](https://github.com/TeamStudscoin/studscoin)
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [Studscoin Forum](http://forum.studscoin.online/).
-* Join our Discord server [Discord Server](https://discord.studscoin.online)
-* Join one of our Slack groups [Studscoin Slack Groups](https://studscoin.online/slack-logins/) (Main community is replaced by Discord).
+* Join our Discord server [Discord Server](https://discord.gg/HapZxgUKgK)
 
 Building
 ---------------------
-The following are developer notes on how to build Studscoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Studscoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [OSX Build Notes](build-osx.md)
+- [Dependencies](dependencies.md)
+- [macOS Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
+- [Windows Build Notes](build-windows.md)
 - [Gitian Building Guide](gitian-building.md)
 
 Development
 ---------------------
-The Studscoin repo's [root README](https://github.com/Studscoin-Project/Studscoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Studscoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/bitcoin/doxygen/) ***TODO***
+- [Source Code Documentation (External Link)](https://github.com/TeamStudscoin/studscoin)
 - [Translation Process](translation_process.md)
 - [Unit Tests](unit-tests.md)
 - [Unauthenticated REST Interface](REST-interface.md)
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [Studscoin](http://forum.studscoin.online/) forum.
-* Join the [Studscoin-Dev](https://studscoin-dev.slack.com/) Slack group ([Sign-Up](https://studscoin-dev.herokuapp.com/)).
+* Discuss on the [Studscoin Homepage](https://github.com/TeamStudscoin/studscoin).
+* Join the [Studscoin Discord](https://discord.gg/HapZxgUKgK).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
@@ -67,6 +66,6 @@ The Studscoin repo's [root README](https://github.com/Studscoin-Project/Studscoi
 
 License
 ---------------------
-Distributed under the [MIT/X11 software license](http://www.opensource.org/licenses/mit-license.php).
+Distributed under the [MIT software license](/COPYING).
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
 cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.

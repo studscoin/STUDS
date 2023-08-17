@@ -1,13 +1,12 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2019-2020 The MasterWin developers
-// Copyright (c) 2021-2021 The Studscoin developers
+// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2021-2022 The Studscoin Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/studscoin-config.h"
+#include "config/pivx-config.h"
 #endif
 
 #include "util.h"

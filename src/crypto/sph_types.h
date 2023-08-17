@@ -288,11 +288,11 @@
  *   - BLAKE-256: short name: <code>blake256</code>
  *   - BLAKE-384: short name: <code>blake384</code>
  *   - BLAKE-512: short name: <code>blake512</code>
- * - BSTUDS (Blue Midnight Wish) family: file <code>sph_bmw.h</code>
- *   - BSTUDS-224: short name: <code>bmw224</code>
- *   - BSTUDS-256: short name: <code>bmw256</code>
- *   - BSTUDS-384: short name: <code>bmw384</code> (64)
- *   - BSTUDS-512: short name: <code>bmw512</code> (64)
+ * - BMW (Blue Midnight Wish) family: file <code>sph_bmw.h</code>
+ *   - BMW-224: short name: <code>bmw224</code>
+ *   - BMW-256: short name: <code>bmw256</code>
+ *   - BMW-384: short name: <code>bmw384</code> (64)
+ *   - BMW-512: short name: <code>bmw512</code> (64)
  * - CubeHash family: file <code>sph_cubehash.h</code> (specified as
  *   CubeHash16/32 in the CubeHash specification)
  *   - CubeHash-224: short name: <code>cubehash224</code>
